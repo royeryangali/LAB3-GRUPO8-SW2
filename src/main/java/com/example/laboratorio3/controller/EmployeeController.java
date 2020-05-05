@@ -35,9 +35,7 @@ public class EmployeeController {
     public String listaEmployee( Model model  ){
         //COMPLETAR
         model.addAttribute("listaEmployees", employeesRepository.findAll());
-        //////USANDO DTO//////////////////////////
-        List<EmpleadosRegionDto> lista = categoryRepository.obtenerEmpleadosPorRegion();
-        ////LUEGO YA LO PODEMOS ENVIAR A LA VISTA////
+
        return "employee/lista";
     }
 
