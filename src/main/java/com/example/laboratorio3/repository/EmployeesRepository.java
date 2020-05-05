@@ -14,7 +14,8 @@ import java.util.List;
 public interface EmployeesRepository extends JpaRepository<Employees, Integer> {
 
 //COMPLETAR
-    @Query(value ="SELECT * FROM employees e WHERE e.salary >15000",nativeQuery = true)
+    @Query(value ="SELECT e.first_name, e.last_name, e.hire_date,j.job_title FROM employees e INNER JOIN jobs j on (e.job_id=j.job_id) INNER JOIN departments d on (e.department_id=d.department_id)\n" +
+            "WHERE e.salary >15000",nativeQuery = true)
     List <EmployeeDto> obtenerempleadosSueldoMayor();
 
 }
