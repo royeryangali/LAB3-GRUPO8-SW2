@@ -10,9 +10,8 @@
 </head>
 <body class="container">
     <h2>Editar Empleado</h2><hr />
-    <h2>Editar Producto</h2><hr />
-    <form method="post" th:action="@{'/employee/save'}">
-        <input th:value="${employee.id}" name="id" type="hidden" />
+    <form method="post" th:action="@{'/product/save'}">
+        <input th:value="${employees.}" name="id" type="hidden" />
         <div class="form-group">
             <label for="productname">Nombre del Producto</label>
             <input th:value="${product.productname}" type="text" class="form-control" name="productname" id="productname">
