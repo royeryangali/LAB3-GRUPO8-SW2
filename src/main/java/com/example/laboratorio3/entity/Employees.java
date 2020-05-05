@@ -19,6 +19,13 @@ public class Employees {
     private String email;
     private String password;
     private String phone_number;
+    private Date hire_date;
+    @ManyToOne
+    @JoinColumn(name="job_id")
+    private Jobs jobs;
+    @Column(nullable = false)
+    private BigDecimal salary;
+    private BigDecimal commission_pct;
 
     public int getId() {
         return id;
@@ -124,17 +131,10 @@ public class Employees {
         this.enable = enable;
     }
 
-    private Date hire_date;
-    @ManyToOne
-    @JoinColumn(name="job_id")
-    private Jobs jobs;
-    @Column(nullable = false)
-    private BigDecimal salary;
-    private BigDecimal commission_pct;
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name="employee_id")
     private Employees employees;
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name="department_id")
     private Departments departments;
     private int enable;
