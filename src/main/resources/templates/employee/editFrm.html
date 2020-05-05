@@ -11,12 +11,20 @@
 <body class="container">
     <h2>Editar Empleado</h2><hr />
     <form method="post" th:action="@{'/product/save'}">
-        <input th:value="${employees.}" name="id" type="hidden" />
+        <input th:value="${employees.employee_id}" name="id" type="hidden" />
         <div class="form-group">
-            <label for="productname">Nombre del Producto</label>
-            <input th:value="${product.productname}" type="text" class="form-control" name="productname" id="productname">
+            <label for="first_name">Nombre </label>
+            <input th:value="${employees.first_name}" type="text" class="form-control" name="first_name" id="first_name">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Apellido </label>
+            <input th:value="${employees.last_name}" type="text" class="form-control" name="last_name" id="last_name">
         </div>
 
+        <div class="form-group">
+            <label for="last_name">Correo </label>
+            <input th:value="${employees.correo}" type="text" class="form-control" name="correo" id="correo">
+        </div>
 
         <div class="form-group">
             <label for="supplier">Proveedor</label>
