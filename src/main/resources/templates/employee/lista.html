@@ -16,14 +16,35 @@
 
         <!-- COMPLETAR -->
         <!-- COMPLETAR -->
+
+
+
             <table class="table table-sm" th:if="${}">
                 <thead>
                 <tr>
-                    <!-- COMPLETAR -->
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Puesto</th>
+                    <th>Departamento</th>
+                    <th>Cuidad</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- COMPLETAR -->
+                <tr th:each="employees, info : ${listaEmployees}">
+                    <td th:text="${info.index + 1}"></td>
+                    <td th:text="${employees.first_name}"></td>
+                    <td th:text="${employees.last_name}"></td>
+                    <td th:text="${employees.jobs.job_title}"></td>
+                    <td th:text="${employees.departments.department_name}"></td>
+                    <td th:text="${employees.departments.locations.city}"></td>
+                    <td><a class="btn btn-primary" th:href="@{'/Employee/edit' + '?id=' + ${employees.id}}">Editar</a>
+                    </td>
+                    <td><a class="btn btn-danger" th:href="@{'/Employee/delete' + '?id=' + ${employees.id}}">Borrar</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
