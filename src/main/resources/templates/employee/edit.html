@@ -10,11 +10,11 @@
 </head>
 <body class="container">
     <h2>Editar Empleado</h2><hr />
-    <form method="post" th:action="@{'/product/save'}">
-        <input th:value="${employees.employee_id}" name="id" type="hidden" />
+    <form method="post" th:action="@{'/Employee/save'}">
+        <input th:value="${employee.employee_id}" name="id" type="hidden" />
         <div class="form-group">
             <label for="first_name">Nombre </label>
-            <input th:value="${employees.first_name}" type="text" class="form-control" name="first_name" id="first_name">
+            <input th:value="${employee.first_name}" type="text" class="form-control" name="first_name" id="first_name">
         </div>
         <div class="form-group">
             <label for="last_name">Apellido </label>

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -36,13 +35,13 @@ public class EmployeeController {
         //COMPLETAR
         model.addAttribute("listaEmployees", employeesRepository.findAll());
 
-       return "employee/lista";
+       return "Employee/lista";
     }
 
     @GetMapping("/new")
     public String nuevoEmployeeForm( ) {
         //COMPLETAR
-        return "employee/newFrm";
+        return "Employee/newFrm";
     }
 
     @PostMapping("/save")
@@ -69,7 +68,7 @@ public class EmployeeController {
             model.addAttribute("listaJobs",jobsRepository.findAll());
             model.addAttribute("listaDepartments",departmentsRepository.findAll());
             model.addAttribute("listaLocations",locationsRepository.findAll());
-            return "employee/editFrm";
+            return "edit";
         } else {
             return "redirect:/Employee";
         }
