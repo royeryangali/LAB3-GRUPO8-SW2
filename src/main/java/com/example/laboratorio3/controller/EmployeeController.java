@@ -1,7 +1,10 @@
 package com.example.laboratorio3.controller;
 
 import com.example.laboratorio3.entity.Employees;
+import com.example.laboratorio3.repository.DepartmentsRepository;
 import com.example.laboratorio3.repository.EmployeesRepository;
+import com.example.laboratorio3.repository.JobsRepository;
+import com.example.laboratorio3.repository.LocationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,12 @@ public class EmployeeController {
     //COMPLETAR
     @Autowired
     EmployeesRepository employeesRepository;
+    @Autowired
+    JobsRepository jobsRepository;
+    @Autowired
+    DepartmentsRepository departmentsRepository;
+    @Autowired
+    LocationsRepository locationsRepository;
 
     @GetMapping(value = {"", "/"})
     public String listaEmployee(   ){
@@ -54,9 +63,9 @@ public class EmployeeController {
             Employees employee = optEmployees.get();
             model.addAttribute("employee", employee);
             model.addAttribute("listaEmpleados", employeesRepository.findAll());
-            model.addAttribute("listaJobs",supplierRepository.findAll());
-            model.addAttribute("listaDepartments",supplierRepository.findAll());
-            model.addAttribute("listaLocations",supplierRepository.findAll());
+            model.addAttribute("listaJobs",jobsRepository.findAll());
+            model.addAttribute("listaDepartments",departmentsRepository.findAll());
+            model.addAttribute("listaLocations",locationsRepository.findAll());
             return "employee/editFrm";
         } else {
             return "redirect:/Employee";
