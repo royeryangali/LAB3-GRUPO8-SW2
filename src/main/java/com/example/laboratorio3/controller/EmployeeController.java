@@ -64,10 +64,18 @@ public class EmployeeController {
     }
 
     @GetMapping("/delete")
-    public String borrarEmpleado() {
+    public String borrarEmpleado(Model model,
+                                 @RequestParam("id") int id,
+                                 RedirectAttributes attr) {
 
        //COMPLETAR
+        Optional<Employees> optEmployees = employeesRepository.findById(id);
 
+        if (optEmployees.isPresent()) {
+            employeesRepository.deleteById(id);
+            attr.addFlashAttribute("msg","Empleado borrado exitosamente");
+        }
+        return "redirect:/Employee";
     }
 
     //COMPLETAR
