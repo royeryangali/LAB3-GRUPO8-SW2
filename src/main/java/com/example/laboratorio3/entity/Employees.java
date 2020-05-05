@@ -131,10 +131,10 @@ public class Employees {
         this.enable = enable;
     }
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="employee_id")
     private Employees employees;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="department_id")
     private Departments departments;
     private int enable;
