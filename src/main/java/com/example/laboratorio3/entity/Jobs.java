@@ -7,16 +7,15 @@ import javax.persistence.*;
 public class Jobs {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="job_id")
-    private int job_history_id;
+    private String jobs_id;
 
-    public int getJob_history_id() {
-        return job_history_id;
+    public String getJobs_id() {
+        return jobs_id;
     }
 
-    public void setJob_history_id(int job_history_id) {
-        this.job_history_id = job_history_id;
+    public void setJobs_id(String jobs_id) {
+        this.jobs_id = jobs_id;
     }
 
     public String getJob_title() {
